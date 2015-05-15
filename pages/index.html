@@ -1,0 +1,422 @@
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="description" content="">
+                <meta name="author" content="">
+
+               
+                
+
+
+                <!-- Bootstrap Core CSS -->
+                <link href="../css/bootstrap.min.css" rel="stylesheet">
+                <link rel="stylesheet" href="../css/bootstrap.css">
+                <link rel="stylesheet" href="../css/bootstrap-theme.css">
+
+                <!-- MetisMenu CSS -->
+                <link href="../css/metisMenu.min.css" rel="stylesheet">
+                
+                <link href="../css/sb-admin-2.css" rel="stylesheet">
+
+                <link rel="stylesheet" href="../css/style.css">
+
+                <link href="../css/custom.css" rel="stylesheet">
+
+                <!-- Custom Fonts -->
+                <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                <!--[if lt IE 9]>
+                    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <![endif]-->
+
+            </head>
+
+            <body>
+                
+
+                <div class="container">
+                    <div class="navbar navbar-fixed-top" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);">
+                         <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="fa fa-bars color-white"></span>
+                                </button>
+                                <h1><a class="navbar-brand" href="../home.html" data-0="line-height:90px;" data-300="line-height:50px;">          Aquaponics.
+                                </a></h1>
+                            </div>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav" data-0="margin-top:20px;" data-300="margin-top:5px;">
+                                    <li><a href="../home.html">Home</a></li>
+                                    <!-- <li><a href="#section-about">About</a></li>
+                                    <li><a href="#section-works">Portfolio</a></li>
+                                    <li><a href="#section-contact">Contact</a></li> -->
+                                </ul>
+                            </div><!--/.navbar-collapse -->
+                        </div>
+                    </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="page-header">Dashboard</h3>
+                            </div>
+
+                            
+                           
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-5">
+                                <p class="details">Welcome User!</p>
+                                <div class="avatar"></div>
+                                <p class="details">Here are your readings</p>
+                            </div>
+                        </div>
+                      
+
+
+
+
+                                                        
+                <div role="tabpanel">
+
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Temperature</a></li>
+                            <li role="presentation"><a href="#chart" aria-controls="chart" role="tab" data-toggle="tab">Waterlevel</a></li>
+                            <li role="presentation"><a href="#chart2" aria-controls="chart2" role="tab" data-toggle="tab">pH</a></li>
+                         
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home"><canvas id="invest-chart3"></canvas></div>
+                                <div role="tabpanel" class="tab-pane" id="chart"><canvas id="invest-chart"></canvas></div>
+                                <div role="tabpanel" class="tab-pane" id="chart2"><canvas id="invest-chart2"></canvas></div>
+                            </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="row col-lg-offset-2">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/water.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge1">26</div>
+                                                <div>Water Level</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                       
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/temp.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge2">12</div>
+                                                <div>Temperature</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/waterdrop.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge3">124</div>
+                                                <div>pH</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <!-- /#wrapper -->
+
+                <!-- jQuery -->
+                <script src="../js/jquery.min.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="../js/bootstrap.min.js"></script>
+
+                <!-- Custom Theme JavaScript -->
+                <script src="../dist/js/sb-admin-2.js"></script>
+                <script src="../dist/js/Chart.js"></script>
+                <script src="../dist/js/jquery.nicescroll.min.js"></script>
+
+
+            <script> 
+
+                               
+
+                            var getJSON = function(url) {
+                                return new Promise(function(resolve, reject) {
+                                var xhr = new XMLHttpRequest();
+                                xhr.open('get', url, true);
+                                xhr.responseType = 'json';
+                                xhr.onload = function() {
+                                  var status = xhr.status;
+                                  if (status == 200) {
+                                    resolve(xhr.response);
+                                  } else {
+                                    reject(status);
+                                    alert("error");
+                                  }
+                                };
+                                xhr.send();
+                              });
+                            };
+
+                            var json = getJSON('http://ec2-54-152-138-146.compute-1.amazonaws.com:9000/system/listSystems').then(function(data) {
+                                alert(data.data[0].waterLevel); 
+
+                                var chartData =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData.push(data.data[i].temperature);
+                                        
+                                        
+                                    }
+                                        alert(chartData);
+
+                                    var chartData2 =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData2.push(data.data[i].waterLevel);
+                                        
+                                    }
+                                     alert(chartData2);
+                                 
+
+                                    var chartData3 =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData3.push(data.data[i].ph);
+                                        
+                                        
+                                    }
+                                        alert(chartData3);
+
+
+
+
+                                    var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                        {
+                                            label: "My First dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(220,220,220,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(220,220,220,1)",
+                                            data: chartData
+                                        }
+                                    ]
+                                };
+                                 var options = {
+                                     responsive : true,
+                                     animation: true,
+                                  };
+
+
+
+                   var context = document.getElementById('invest-chart3').getContext('2d');
+                   var myChart = new Chart(context).Line(barData,options);
+                
+
+
+
+
+                            $('a[href=#home]').on('shown.bs.tab', function(){
+                                var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "October"],
+                                    datasets: [
+                                        {
+                                            label: "My First dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(220,220,220,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(220,220,220,1)",
+                                            data: chartData
+                                        }
+                                            ]
+                                             };
+                                                      var options = {
+                                                            responsive : true,
+                                                            animation: true,
+                                                                    };
+                                                      var ctx1 = $("#invest-chart3").get(0).getContext("2d");
+                                                      var invest_chart3;
+                                                      new Chart(ctx1).Line(barData,  {
+                                                         responsive : true,
+                                                         animation: true,
+                                                      });
+                                                    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                     $('a[href=#chart]').on('shown.bs.tab', function(){
+                                     var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                       
+                                        {
+                                            label: "My Second dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(151,187,205,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(151,187,205,1)",
+                                            data: chartData2
+                                        }
+                                    ]
+                                };
+                                              var options = {
+                                                 responsive : true,
+                                                 animation: true,
+                                              };
+                                              var ctx1 = $("#invest-chart").get(0).getContext("2d");
+                                              var invest_chart;
+                                              new Chart(ctx1).Line(barData,  {
+                                                 responsive : true,
+                                                 animation: true,
+                                              });
+                                            })
+
+
+                                
+
+
+
+
+                                    $('a[href=#chart2]').on('shown.bs.tab', function(){
+                                    var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                       
+                                        {
+                                            label: "My Second dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(151,187,205,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(151,187,205,1)",
+                                            data: chartData3
+                                        }
+                                    ]
+                                };
+                                              var options = {
+                                                 responsive : true,
+                                                 animation: true,
+                                              };
+                                              var ctx1 = $("#invest-chart2").get(0).getContext("2d");
+                                              var invest_chart2;
+                                              new Chart(ctx1).Line(barData,  {
+                                                 responsive : true,
+                                                 animation: true,
+                                              });
+                                            })
+
+
+
+
+
+
+                var num1 = data.data[0].waterLevel;
+                alert (num1);
+
+                var num2 = data.data[0].temperature;
+                alert(num2);
+
+                var num3 = data.data[0].ph
+                alert(num3);
+
+                
+                $(".huge1").text(num1);
+                $(".huge2").text(num2);
+                $(".huge3").text(num3);
+
+
+
+
+
+
+
+
+
+
+                                result.innerText = data.data; //display the result in an HTML element
+                            }, 
+
+                            function(status) { //error detection....
+                              alert('Something went wrong.');
+                            });
+            </script>
+
+
+
+            </body>
+
+            </html>

@@ -1,0 +1,403 @@
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta name="description" content="">
+                <meta name="author" content="">
+
+               
+             <link href="../dist/css/custom.css" rel="stylesheet">
+
+
+                <!-- Bootstrap Core CSS -->
+                <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+                <!-- MetisMenu CSS -->
+                <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+           
+
+                
+                <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+                
+
+                <!-- Custom Fonts -->
+                <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                <!--[if lt IE 9]>
+                    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                <![endif]-->
+
+            </head>
+
+            <body>
+
+                <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h1 class="page-header">Aquaponics Dashboard</h1>
+                            </div>
+
+                            <div class="col-md-3 col-md-offset-3">
+                                <div class="avatar"></div>
+                                <p class="details"><strong>Welcome Biiiitch!</strong></p>
+                            </div>
+                           
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        <!-- /.row -->
+                        <br>
+                        <br>
+                        <br>
+                      
+
+
+
+
+                                                        
+                <div role="tabpanel">
+
+                          <!-- Nav tabs -->
+                          <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Temperature</a></li>
+                            <li role="presentation"><a href="#chart" aria-controls="chart" role="tab" data-toggle="tab">Waterlevel</a></li>
+                            <li role="presentation"><a href="#chart2" aria-controls="chart2" role="tab" data-toggle="tab">pH</a></li>
+                         
+                          </ul>
+
+                          <!-- Tab panes -->
+                          <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home"><canvas id="invest-chart3"></canvas></div>
+                                <div role="tabpanel" class="tab-pane" id="chart"><canvas id="invest-chart"></canvas></div>
+                                <div role="tabpanel" class="tab-pane" id="chart2"><canvas id="invest-chart2"></canvas></div>
+                            </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="row col-lg-offset-2">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/water.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge1">26</div>
+                                                <div>New Comments!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                       
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/temp.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge2">12</div>
+                                                <div>New Tasks!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/waterdrop.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge3">124</div>
+                                                <div>New Orders!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <!-- /#wrapper -->
+
+                <!-- jQuery -->
+                <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+                
+                
+
+              
+
+                <!-- Custom Theme JavaScript -->
+                <script src="../dist/js/sb-admin-2.js"></script>
+                 <script src="../dist/js/Chart.js"></script>
+
+
+
+
+
+
+               
+
+            <script> 
+
+                               
+
+                            var getJSON = function(url) {
+                                return new Promise(function(resolve, reject) {
+                                var xhr = new XMLHttpRequest();
+                                xhr.open('get', url, true);
+                                xhr.responseType = 'json';
+                                xhr.onload = function() {
+                                  var status = xhr.status;
+                                  if (status == 200) {
+                                    resolve(xhr.response);
+                                  } else {
+                                    reject(status);
+                                  }
+                                };
+                                xhr.send();
+                              });
+                            };
+
+                            var json = getJSON('http://ec2-54-152-138-146.compute-1.amazonaws.com:9000/system/listSystems').then(function(data) {
+                                alert(data.data[0].waterLevel); 
+
+                                var chartData =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData.push(data.data[i].temperature);
+                                        
+                                        
+                                    }
+                                        alert(chartData);
+
+                                    var chartData2 =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData2.push(data.data[i].waterLevel);
+                                        
+                                    }
+                                     alert(chartData2);
+                                 
+
+                                    var chartData3 =[];
+                                    for (var i = 0; i < data.data.length; i++){
+                                        chartData3.push(data.data[i].ph);
+                                        
+                                        
+                                    }
+                                        alert(chartData3);
+
+
+
+
+                                    var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                        {
+                                            label: "My First dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(220,220,220,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(220,220,220,1)",
+                                            data: chartData
+                                        }
+                                    ]
+                                };
+                                 var options = {
+                                     responsive : true,
+                                     animation: true,
+                                  };
+
+
+
+                    var context = document.getElementById('invest-chart3').getContext('2d');
+                   var myChart = new Chart(context).Line(barData,options);
+                
+
+
+
+
+                            $('a[href=#home]').on('shown.bs.tab', function(){
+                                var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                        {
+                                            label: "My First dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(220,220,220,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(220,220,220,1)",
+                                            data: chartData
+                                        }
+                                            ]
+                                             };
+                                                      var options = {
+                                                            responsive : true,
+                                                            animation: true,
+                                                                    };
+                                                      var ctx1 = $("#invest-chart3").get(0).getContext("2d");
+                                                      var invest_chart3;
+                                                      new Chart(ctx1).Line(barData,  {
+                                                         responsive : true,
+                                                         animation: true,
+                                                      });
+                                                    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                     $('a[href=#chart]').on('shown.bs.tab', function(){
+                                     var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                       
+                                        {
+                                            label: "My Second dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(151,187,205,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(151,187,205,1)",
+                                            data: chartData2
+                                        }
+                                    ]
+                                };
+                                              var options = {
+                                                 responsive : true,
+                                                 animation: true,
+                                              };
+                                              var ctx1 = $("#invest-chart").get(0).getContext("2d");
+                                              var invest_chart;
+                                              new Chart(ctx1).Line(barData,  {
+                                                 responsive : true,
+                                                 animation: true,
+                                              });
+                                            })
+
+
+                                
+
+
+
+
+                                    $('a[href=#chart2]').on('shown.bs.tab', function(){
+                                    var barData = {
+                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    datasets: [
+                                       
+                                        {
+                                            label: "My Second dataset",
+                                            fillColor: "rgba(151,187,205,0.2)",
+                                            strokeColor: "rgba(151,187,205,1)",
+                                            pointColor: "rgba(151,187,205,1)",
+                                            pointStrokeColor: "#fff",
+                                            pointHighlightFill: "#fff",
+                                            pointHighlightStroke: "rgba(151,187,205,1)",
+                                            data: chartData3
+                                        }
+                                    ]
+                                };
+                                              var options = {
+                                                 responsive : true,
+                                                 animation: true,
+                                              };
+                                              var ctx1 = $("#invest-chart2").get(0).getContext("2d");
+                                              var invest_chart2;
+                                              new Chart(ctx1).Line(barData,  {
+                                                 responsive : true,
+                                                 animation: true,
+                                              });
+                                            })
+
+
+
+
+
+
+                var num1 = data.data[0].waterLevel;
+                alert (num1);
+
+
+                
+                $(".huge1").text(num1);
+
+
+
+
+
+
+
+
+
+
+                                result.innerText = data.data; //display the result in an HTML element
+                            }, 
+
+                            function(status) { //error detection....
+                              alert('Something went wrong.');
+                            });
+
+
+
+
+
+  </script>
+
+
+
+            </body>
+
+            </html>
