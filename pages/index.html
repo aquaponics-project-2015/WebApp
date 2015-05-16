@@ -14,12 +14,12 @@
 
 
                 <!-- Bootstrap Core CSS -->
-                <link href="../css/bootstrap.min.css" rel="stylesheet">
+                <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
                 <link rel="stylesheet" href="../css/bootstrap.css">
                 <link rel="stylesheet" href="../css/bootstrap-theme.css">
 
                 <!-- MetisMenu CSS -->
-                <link href="../css/metisMenu.min.css" rel="stylesheet">
+                <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
                 
                 <link href="../css/sb-admin-2.css" rel="stylesheet">
 
@@ -78,9 +78,9 @@
 
                         <div class="row">
                             <div class="col-md-3 col-md-offset-5">
-                                <p class="details">Welcome User!</p>
+                                <p class="details">Welcome <id="uname">User!</p>
                                 <div class="avatar"></div>
-                                <p class="details">Here are your readings</p>
+                                <p class="details2">Here are your readings</p>
                             </div>
                         </div>
                       
@@ -181,10 +181,10 @@
                 <!-- /#wrapper -->
 
                 <!-- jQuery -->
-                <script src="../js/jquery.min.js"></script>
+                <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
                 <!-- Bootstrap Core JavaScript -->
-                <script src="../js/bootstrap.min.js"></script>
+                <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
                 <!-- Custom Theme JavaScript -->
                 <script src="../dist/js/sb-admin-2.js"></script>
@@ -215,7 +215,7 @@
                             };
 
                             var json = getJSON('http://ec2-54-152-138-146.compute-1.amazonaws.com:9000/system/listSystems').then(function(data) {
-                                alert(data.data[0].waterLevel); 
+                                //alert(data.data[0].waterLevel); 
 
                                 var chartData =[];
                                     for (var i = 0; i < data.data.length; i++){
@@ -223,14 +223,14 @@
                                         
                                         
                                     }
-                                        alert(chartData);
+                                        //alert(chartData);
 
                                     var chartData2 =[];
                                     for (var i = 0; i < data.data.length; i++){
                                         chartData2.push(data.data[i].waterLevel);
                                         
                                     }
-                                     alert(chartData2);
+                                     //alert(chartData2);
                                  
 
                                     var chartData3 =[];
@@ -239,13 +239,13 @@
                                         
                                         
                                     }
-                                        alert(chartData3);
+                                        //alert(chartData3);
 
 
 
 
                                     var barData = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
                                     datasets: [
                                         {
                                             label: "My First dataset",
@@ -266,16 +266,16 @@
 
 
 
-                   var context = document.getElementById('invest-chart3').getContext('2d');
-                   var myChart = new Chart(context).Line(barData,options);
-                
+                               var context = document.getElementById('invest-chart3').getContext('2d');
+                               var myChart = new Chart(context).Line(barData,options);
+                            
 
 
 
 
                             $('a[href=#home]').on('shown.bs.tab', function(){
                                 var barData = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "October"],
+                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
                                     datasets: [
                                         {
                                             label: "My First dataset",
@@ -317,7 +317,7 @@
 
                                      $('a[href=#chart]').on('shown.bs.tab', function(){
                                      var barData = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
                                     datasets: [
                                        
                                         {
@@ -352,7 +352,7 @@
 
                                     $('a[href=#chart2]').on('shown.bs.tab', function(){
                                     var barData = {
-                                    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
                                     datasets: [
                                        
                                         {
@@ -384,30 +384,45 @@
 
 
 
-                var num1 = data.data[0].waterLevel;
-                alert (num1);
+                                                var num1 = data.data[0].waterLevel;
+                                               // alert (num1);
 
-                var num2 = data.data[0].temperature;
-                alert(num2);
+                                                var num2 = data.data[0].temperature;
+                                               // alert(num2);
 
-                var num3 = data.data[0].ph
-                alert(num3);
+                                                var num3 = data.data[0].ph
+                                               // alert(num3);
 
-                
-                $(".huge1").text(num1);
-                $(".huge2").text(num2);
-                $(".huge3").text(num3);
-
-
+                                                
+                                                $(".huge1").text(num1);
+                                                $(".huge2").text(num2);
+                                                $(".huge3").text(num3);
 
 
 
 
 
+                                            function jsGetQueryString(variable) {
+                                                 var queryString = window.location.search.substring(1);
+                                                 var vars = queryString.split("&");
+                                                for(var i=0; i<vars.length; i++){
+                                                     var getValue = vars[i].split("=");
+                                                     if(getValue[0] == variable) return getValue[1];
+                                                }
+                                            }
+
+                                        var name = "Welcome" + " " + jsGetQueryString("user") + "!";
+                                        $(".details").text(name);
 
 
 
-                                result.innerText = data.data; //display the result in an HTML element
+
+
+
+
+
+
+                              //  result.innerText = data.data; //display the result in an HTML element
                             }, 
 
                             function(status) { //error detection....
