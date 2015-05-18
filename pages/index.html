@@ -8,7 +8,12 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="description" content="">
                 <meta name="author" content="">
+                <meta http-equiv="Refresh" content="60">
+                <style type="text/css">
+                        h4 {text-align: center;}
 
+
+                </style>
                
                 
 
@@ -29,6 +34,7 @@
 
                 <!-- Custom Fonts -->
                 <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
                 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
                 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,9 +84,9 @@
 
                         <div class="row">
                             <div class="col-md-3 col-md-offset-5">
-                                <p class="details">Welcome <id="uname"></p>
-                                <!-- <div class="avatar"></div> -->
-                                <!-- <p class="details2">Here are your readings</p> -->
+                                <p class="details">Welcome <id="uname">User!</p>
+                                <!-- <div class="avatar"></div>
+                                <p class="details2">Here are your readings</p> -->
                             </div>
                         </div>
                       
@@ -114,32 +120,14 @@
 
 
 
-
+                        <h4> Current readings </h4>
 
 
 
 
 
                         <div class="row col-lg-offset-2">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <img src="../img/water.png">
-                                            </div>
-                                            <div class="col-xs-9 text-right">
-                                                <div class="huge1">26</div>
-                                                <div>Water Level</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#">
-                                       
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
+                         <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-green">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -147,7 +135,7 @@
                                                 <img src="../img/temp.png">
                                             </div>
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge2">12</div>
+                                                <div class="huge2"></div>
                                                 <div>Temperature</div>
                                             </div>
                                         </div>
@@ -158,6 +146,25 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="../img/water.png">
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div class="huge1"></div>
+                                                <div>Water Level</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                       
+                                    </a>
+                                </div>
+                            </div>
+                           
+                            <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-yellow">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -165,7 +172,7 @@
                                                 <img src="../img/waterdrop.png">
                                             </div>
                                             <div class="col-xs-9 text-right">
-                                                <div class="huge3">124</div>
+                                                <div class="huge3"></div>
                                                 <div>pH</div>
                                             </div>
                                         </div>
@@ -193,7 +200,7 @@
 
 
             <script> 
-
+                        var dateData =[];
                                
 
                             var getJSON = function(url) {
@@ -218,7 +225,7 @@
                                 //alert(data.data[0].waterLevel); 
 
                                 var chartData =[];
-                                    for (var i = 0; i < data.data.length; i++){
+                                    for (var i = 37; i < data.data.length; i++){
                                         chartData.push(data.data[i].temperature);
                                         
                                         
@@ -226,7 +233,7 @@
                                         //alert(chartData);
 
                                     var chartData2 =[];
-                                    for (var i = 0; i < data.data.length; i++){
+                                    for (var i = 37; i < data.data.length; i++){
                                         chartData2.push(data.data[i].waterLevel);
                                         
                                     }
@@ -234,7 +241,7 @@
                                  
 
                                     var chartData3 =[];
-                                    for (var i = 0; i < data.data.length; i++){
+                                    for (var i = 37; i < data.data.length; i++){
                                         chartData3.push(data.data[i].ph);
                                         
                                         
@@ -242,15 +249,49 @@
                                         //alert(chartData3);
 
 
+                                        var dateData =[];
+                                    for (var i = 37; i < data.data.length; i++){
+                                        var date = new Date(data.data[i].datetime);
+
+                                        
+
+                                        dateData.push(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " " + (timeConvert(date.getHours()) + 1) + ":" + minConvert(date.getMinutes())     );
+                                    }
+
+                                        function timeConvert(int){
+                                            if (int <= 12){
+                                                return int;
+
+                                            }else {
+
+                                             return int -12;
+                                         }
+
+                                        }
+
+
+                                        function minConvert(int){
+
+                                            if (int<10){
+                                                return "0" + int;
+                                            }else {
+                                                return int+ " ";
+                                            }
+
+
+                                        }
+
+
+
 
 
                                     var barData = {
-                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
+                                    labels: dateData,
                                     datasets: [
                                         {
                                             label: "My First dataset",
                                             fillColor: "rgba(151,187,205,0.2)",
-                                            strokeColor: "rgba(220,220,220,1)",
+                                            strokeColor: "rgba(151,187,205,1)",
                                             pointColor: "rgba(151,187,205,1)",
                                             pointStrokeColor: "#fff",
                                             pointHighlightFill: "#fff",
@@ -275,12 +316,12 @@
 
                             $('a[href=#home]').on('shown.bs.tab', function(){
                                 var barData = {
-                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
+                                    labels: dateData,
                                     datasets: [
                                         {
                                             label: "My First dataset",
                                             fillColor: "rgba(151,187,205,0.2)",
-                                            strokeColor: "rgba(220,220,220,1)",
+                                            strokeColor: "rgba(151,187,205,1)",
                                             pointColor: "rgba(151,187,205,1)",
                                             pointStrokeColor: "#fff",
                                             pointHighlightFill: "#fff",
@@ -317,7 +358,7 @@
 
                                      $('a[href=#chart]').on('shown.bs.tab', function(){
                                      var barData = {
-                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
+                                    labels: dateData,
                                     datasets: [
                                        
                                         {
@@ -352,7 +393,7 @@
 
                                     $('a[href=#chart2]').on('shown.bs.tab', function(){
                                     var barData = {
-                                    labels: ["15 mins", "30 mins", "45 mins", "1 hour", "1:15 mins", "1:30 mins", "1:45 mins", "2 hours", "2:15 mins", "2:30 mins", "2:45 mins", "3 hours"],
+                                    labels: dateData,
                                     datasets: [
                                        
                                         {
@@ -371,9 +412,17 @@
                                                  responsive : true,
                                                  animation: true,
                                               };
+
+                                              var steps = 10;
+
                                               var ctx1 = $("#invest-chart2").get(0).getContext("2d");
                                               var invest_chart2;
                                               new Chart(ctx1).Line(barData,  {
+                                                 //scaleOverride: true,
+                                                  //  scaleSteps: steps,
+                                                  //  scaleStepWidth: Math.ceil(10 / steps),
+                                                   // scaleStartValue: 0,
+
                                                  responsive : true,
                                                  animation: true,
                                               });
@@ -384,13 +433,13 @@
 
 
 
-                                                var num1 = data.data[0].waterLevel;
+                                                var num1 = data.data[49].waterLevel;
                                                // alert (num1);
 
-                                                var num2 = data.data[0].temperature;
+                                                var num2 = data.data[49].temperature;
                                                // alert(num2);
 
-                                                var num3 = data.data[0].ph
+                                                var num3 = data.data[49].ph
                                                // alert(num3);
 
                                                 
