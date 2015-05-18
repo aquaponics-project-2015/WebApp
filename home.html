@@ -18,38 +18,7 @@
 		<!-- skin -->
 		<link rel="stylesheet" href="skin/default.css">
     </head>
-	 
-    <style type="text/css">
-    	#feauture3_1:hover {
-    	    background-color:#f2af95;
-    	    cursor:pointer;
-    	}
-    	#feauture3_2:hover {
-    	    background-color:#f2af95;
-    	    cursor:pointer;
-    	}
-    	#feauture3_3:hover {
-    	    background-color:#f2af95;
-    	    cursor:pointer;
-    	}
-    	#feauture3_4:hover {
-    	    background-color:#f2af95;
-    	    cursor:pointer;
-    	}
-
-    	#feauture3 {
-    	    height: 100%;
-    	    width: 100%;
-    	    background: url(img/pins.jpg) 50% 50% no-repeat;
-    	    left:0;
-    	    background-size: cover;
-    	    background-color:#e18764;
-    	    color:red;
-    	    -webkit-transition:all 1s ease-in-out;
-    	    padding-top: 250px;
-    	    padding-bottom: 250px;
-    	}
-    </style>
+	
 
     <body>
 		<section id="header" class="appear"></section>
@@ -99,10 +68,13 @@
 			<div class="container">
 				
 				<div class="row mar-bot40">
-					<div class="col-md-offset-3 col-md-6">
+					<div class="col-md-offset-2 col-md-8">
 						<div class="section-header">
 							<h2 class="section-heading animated" data-animation="bounceInUp">How Does It Work?</h2>
-							<p>A system of aquaculture in which the waste produced by farmed fish or other aquatic creatures supplies the nutrients for plants grown hydroponically, which in turn purify the water.</p>
+							<p>Aquaponics is a food production system that is a combination of hydroponics (growing plants in water) and aquaculture (raising aquatic animals such as fish). </p>
+							
+							<p>Water from the fish tank is pumped into the plant bed which is then filtered back into the fish tank. The water used to nourish the plants has a number of nutrients found in the excretions from the fish. This is then broken down into nitrates and nitrites by nitrifying bacteria for the plants to absorb.</p>
+							<br>
 							<img src="aqua.png">
 						</div>
 					</div>
@@ -125,7 +97,7 @@
 							<div class="align-center">
 										<div class="testimonial pad-top40 pad-bot40 clearfix">
 											<!-- <h5>
-												Nunc velit risus, dapibus non interdum quis, suscipit nec dolor. Vivamus tempor tempus mauris vitae fermentum. In vitae nulla lacus. Sed sagittis tortor vel arcu sollicitudin nec tincidunt metus suscipit.Nunc velit risus, dapibus non interdum.
+												
 											</h5> -->
 											<br/>
 											
@@ -176,15 +148,16 @@
 			
 
 		<section>
-		<div class="" id="feauture3">
-		    <div id="feauture3_content">
-		        <div id="feauture3_1">UNO</div>
-		        <div id="feauture3_2">Water Level</div>
-		        <div id="feauture3_3">pH</div>
-		        <div id="feauture3_4">Temperature <img src="img/tempp.png"></div>
+		<div id="feauture3">
+		    <div class="col-md-1 sensors">
+		        <div id="feauture3_1"><img src="img/microconn.png"></div>
+		        <div id="feauture3_2"><img src="img/waterdropp.png"></div>
+		        <div id="feauture3_3"><img src="img/waterr.png"></div>
+		        <div id="feauture3_4"><img src="img/tempp.png"></div>
 		    </div>
 		</div>
 		</section>
+		
 
 			
 		<!-- about -->
@@ -195,13 +168,12 @@
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">
 							<h2 class="section-heading animated" data-animation="bounceInUp">Specs</h2>
-							<!-- <p>Meet the heads behind our system.</p> -->
 						</div>
 					</div>
 				</div>
 
 					<div class="row mar-bot40">
-						<div class="col-md-5">
+						<div class="col-md-12">
 							<div class="team-member">
 								<div class="team-detail">
 									<h5>App</h5>
@@ -209,24 +181,22 @@
 								</div>
 							</div>
 							<br>
+							<hr>
 							<div class="team-member">
 								<div class="team-detail">
 									<h5>Content</h5>
 									<span>1 Aquarium with water pump, temperature, pH and water level sensors, 1 Plant Bed with growing medium</span>
 								</div>
 							</div>
-						</div>
-						
-						<div class="col-md-5 col-md-offset-1">
+							<br>
+							<hr>
 							<div class="team-member">
-								<!-- <figure class="member-photo"><img src="img/team/member3.jpg" alt="" /></figure> -->
 								<div class="team-detail">
 								<h5>Environment</h5>
 									<span>For the home; more preferably indoors :)</span>
 								</div>
 							</div>
 						</div>
-						
 					</div>
 						
 		</div>
@@ -251,8 +221,7 @@
 				<div class="row mar-bot40">
 					<div class="col-md-offset-3 col-md-6">
 						<div class="section-header">
-							<!-- <h2 class="section-heading animated" data-animation="bounceInUp">Specs</h2> -->
-							<h3>Have we still not sparked your interest in Aquaponics on a whole?</h3>
+							<h3>Have we still not sparked your interest in Aquaponics?</h3>
 							<h4>Take a look at some of these aquaponics videos we found interesting :)</h4>
 						</div>
 					</div>
@@ -422,11 +391,11 @@
         	    });
 
         	    $("#feauture3_2").click(function () {
-        	        $("#feauture3").css('background-image', 'url(img/ultrasonic.png)');
+        	        $("#feauture3").css('background-image', 'url(img/phsensor.png)');
         	    });
 
         	    $("#feauture3_3").click(function () {
-        	        $("#feauture3").css('background-image', 'url(img/phsensor.png)');
+        	        $("#feauture3").css('background-image', 'url(img/ultrasonic.png)');
         	    });
 
         	    $("#feauture3_4").click(function () {

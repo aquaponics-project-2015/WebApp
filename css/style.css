@@ -193,7 +193,7 @@ a:hover {
 	padding-top: 35px;
 }
 .pad-top40 {
-	padding-top: 40px;
+	padding-top: 100px;
 }
 /* bottom */
 .pad-bot0 {
@@ -223,7 +223,7 @@ a:hover {
 	padding-bottom: 35px;
 }
 .pad-bot40 {
-	padding-bottom: 40px;
+	padding-bottom: 100px;
 }
 
 
@@ -1099,3 +1099,40 @@ Media queries
 .page-header {
 	margin-top: 70px;
 }
+
+/*sensors*/
+
+#feauture3_1:hover {
+    	    background-color: rgba(52, 152, 219, 0);
+    	    cursor:pointer;
+    	}
+    	#feauture3_2:hover {
+    	    background-color: rgba(52, 152, 219, 0);
+    	    cursor:pointer;
+    	}
+    	#feauture3_3:hover {
+    	    background-color: rgba(52, 152, 219, 0);
+    	    cursor:pointer;
+    	}
+    	#feauture3_4:hover {
+    	    background-color: rgba(52, 152, 219, 0);
+    	    cursor:pointer;
+    	}
+
+    	#feauture3 {
+    	    height: 100%;
+    	    width: 100%;
+    	    background: url(../img/pins.png) 50% 50% no-repeat;
+    	    left:0;
+    	    background-size: cover;
+    	    background-color:#e18764;
+    	    color: #3498db;
+    	    -webkit-transition:all 1s ease-in-out;
+    	    padding-top: 250px;
+    	    padding-bottom: 250px;
+    	    font-weight: bold;
+    	}
+
+    	.sensors {
+    		float: none;
+    	}
